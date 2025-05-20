@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: kyc-verification-api
+    env: python
+    buildCommand: "./build.sh && pip install -r requirements.txt"
+    startCommand: "gunicorn apikyc.wsgi:application"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: projetkyc.settings
+      - key: PYTHON_VERSION
+        value: 3.10
